@@ -1,16 +1,17 @@
 plugins {
     java
-    id("com.gradleup.shadow") version ("9.0.0-beta6")
+    id("com.gradleup.shadow") version ("9.3.0")
+    id("xyz.jpenilla.run-paper") version ("3.0.2")
 }
 
 group = "me.xginko"
-version = "2.0.0"
+version = "2.0.1"
 description = "Combat heavy villager lag by letting players optimize their trading halls."
 
 repositories {
     mavenCentral()
 
-    maven("https://ci.pluginwiki.us/plugin/repository/everything/") {
+    maven("https://repo.bsdevelopment.org/releases/") {
         name = "configmaster-repo"
     }
 
@@ -32,16 +33,16 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
-    compileOnly("org.apache.logging.log4j:log4j-core:2.24.3")
+    compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    compileOnly("org.apache.logging.log4j:log4j-core:2.25.3")
     compileOnly("net.luckperms:api:5.4")
 
     implementation("com.github.thatsmusic99:ConfigurationMaster-API:v2.0.0-rc.3")
-    implementation("com.github.ben-manes.caffeine:caffeine:2.9.3")
-    implementation("space.arim.morepaperlib:morepaperlib:0.4.3")
-    implementation("com.github.cryptomorin:XSeries:13.0.0")
+    implementation("com.github.ben-manes.caffeine:caffeine:3.2.3")
+    implementation("space.arim.morepaperlib:morepaperlib:0.4.4")
+    implementation("com.github.cryptomorin:XSeries:13.6.0")
     implementation("org.reflections:reflections:0.10.2")
-    implementation("org.bstats:bstats-bukkit:3.0.2")
+    implementation("org.bstats:bstats-bukkit:3.1.0")
 }
 
 java {
@@ -51,6 +52,11 @@ java {
 }
 
 tasks {
+    runServer {
+        minecraftVersion("1.21.10")
+        jvmArgs("-Dcom.mojang.eula.agree=true")
+    }
+
     compileJava {
         options.encoding = Charsets.UTF_8.name()
     }

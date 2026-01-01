@@ -1,10 +1,10 @@
-name: VillagerOptimizer
-version: '${project.version}'
+name: ${name}
+version: '${version}'
 main: me.xginko.villageroptimizer.VillagerOptimizer
 authors: [ xGinko ]
-description: ${project.description}
-website: ${project.url}
-api-version: '1.16'
+description: ${description}
+website: ${url}
+api-version: '1.21'
 softdepend:
   - AntiVillagerLag
 folia-supported: true

@@ -2,13 +2,13 @@ package me.xginko.villageroptimizer.logging;
 
 import net.kyori.adventure.text.logger.slf4j.ComponentLogger;
 import net.kyori.adventure.text.logger.slf4j.ComponentLoggerProvider;
-import net.kyori.adventure.text.serializer.ansi.ANSIComponentSerializer;
+import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.LoggerFactory;
 
 @SuppressWarnings("UnstableApiUsage")
 public final class ComponentLoggerProviderImpl implements ComponentLoggerProvider {
-    private static final @NotNull ANSIComponentSerializer SERIALIZER = ANSIComponentSerializer.builder()
+    private static final @NotNull PlainTextComponentSerializer SERIALIZER = PlainTextComponentSerializer.builder()
             .flattener(TranslatableMapper.FLATTENER)
             .build();
 
